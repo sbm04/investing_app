@@ -8,7 +8,7 @@ const token = "c34f7oqad3ie56g38rd0";
 
 const Home = () => {
   const [query, setquery] = useState("");
-  const [_, setdata] = useState(null);
+  const [data, setdata] = useState(null);
 
   const history = useHistory();
 
