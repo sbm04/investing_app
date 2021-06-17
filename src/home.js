@@ -18,8 +18,10 @@ const Home = () => {
     );
     const json = await result.json();
     setdata(json);
-    history.push("/details");
-    console.log({ json });
+
+    history.push("/details", {
+      data: json,
+    });
   };
 
   return (

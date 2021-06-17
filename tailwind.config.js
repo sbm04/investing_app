@@ -26,6 +26,8 @@ module.exports = {
       customBlue: "#172345",
       purple: "#6d329b",
       secondaryBlue: "#7b00ff",
+      customBlue: "#a8c0ff",
+      customDarkBlue: "#3f2b96",
     },
     fontFamily: {
       fontFamily: {
