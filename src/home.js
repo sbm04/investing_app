@@ -81,10 +81,10 @@ const Home = () => {
       </nav>
 
       <div className="p-8 flex-col  flex justify-center items-center">
-        <p className="text-9xl font-bold m-10 z-10 text-white">Ubersuggest</p>
+        <p className="text-9xl font-bold m-10 z-10 text-white">InvestingGuru</p>
 
         <p className="text-xl bold m-10 z-10 text-white">
-          Want more traffic? Ubersuggest shows you how to win the game of SEO.
+          Want more traffic? InvestingGuru shows you how to win the game of SEO.
           Just type in a domain or a keyword to get started
         </p>
         <div className="bg-orange-500 flex items-center w-1/2 p-2 rounded overflow-hidden  shadow-xl z-10">
