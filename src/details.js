@@ -72,7 +72,7 @@ const Details = ({
         <nav className="mt-5 px-2">
           {menus.map(menu => (
             <a
-              href="#"
+           
               className="group my-3 flex items-center px-2 py-2 text-base leading-6 font-semibold rounded-full  hover:bg-blue-800 hover:text-blue-300 text-white">
               <svg
                 className="mr-4 h-6 w-6 "
@@ -128,7 +128,7 @@ const Details = ({
             {country}
           </p>
           <a
-            href={weburl}
+          
             className="py-8 text-base leading-6 space-y-4 text-white sm:text-lg sm:leading-7">
             <p>Company Website</p>
             {weburl}
