@@ -1,10 +1,24 @@
 import React from "react";
+import {apiCall} from './requests'
 
 const Details = ({
   location: {
     state: { data },
   },
 }) => {
+ 
+
+  console.log({ data });
+
+  const [stateData, setStateData] = React.useState(data)
+  const [query, setquery] = React.useState('')
+
+
+  
+
+  const onsearch = () => {
+    apiCall(query,(json) => setStateData(json), (e) => console.log({e}))
+  }
   const {
     country,
     currency,
@@ -19,9 +33,7 @@ const Details = ({
     ticker,
     weburl,
     description,
-  } = data;
-
-  console.log({ data });
+  } = stateData;
   const menus = [
     {
       svg: "M3 12l9-9 9 9M5 10v10a1 1 0 001 1h3a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1h3a1 1 0 001-1V10M9 21h6",
@@ -196,11 +208,12 @@ const Details = ({
             </div>
             <div className="pt-2 relative mx-auto text-gray-600">
               <input
+               onChange = {(ev) => setquery(ev.target.value)}
                 className="border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg text-sm focus:outline-none"
                 type="search"
                 name="search"
                 placeholder="Search" />
-                <button type="submit" className="absolute right-0 top-0 mt-5 mr-4">
+                <button onClick = {() => onsearch()} type="submit" className="absolute right-0 top-0 mt-5 mr-4">
                 <svg className="text-gray-600 h-4 w-4 fill-current"  width="512px" height="512px" viewBox="0 0 56.966 56.966">
                 <path
               d="M55.146,51.887L41.588,37.786c3.486-4.144,5.396-9.358,5.396-14.786c0-12.682-10.318-23-23-23s-23,10.318-23,23  s10.318,23,23,23c4.761,0,9.298-1.436,13.177-4.162l13.661,14.208c0.571,0.593,1.339,0.92,2.162,0.92  c0.779,0,1.518-0.297,2.079-0.837C56.255,54.982,56.293,53.08,55.146,51.887z M23.984,6c9.374,0,17,7.626,17,17s-7.626,17-17,17  s-17-7.626-17-17S14.61,6,23.984,6z" />

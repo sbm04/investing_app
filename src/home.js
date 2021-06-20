@@ -2,27 +2,22 @@ import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 
 import bgimage from "./assets/p1.jpg";
+import { apiCall } from "./requests";
 
-const BASE_URL = "https://finnhub.io";
-const token = "c30csp2ad3i9gms5o570";
+
 
 const Home = () => {
   const [query, setquery] = useState("");
-  const [data, setdata] = useState(null);
+
 
   const history = useHistory();
 
-  const apiCall = async () => {
-    const result = await fetch(
-      `${BASE_URL}/api/v1/stock/profile?symbol=${query}&token=${token}`
-    );
-    const json = await result.json();
-    setdata(json);
-
-    history.push("/details", {
-      data: json,
-    });
-  };
+  const onsearch = () => {
+    apiCall(query,(json) => history.push("/details",{
+     
+      data : json
+    }), (e) => console.log({e}))
+  }
 
   return (
     <div className="flex flex-col  w-full  ">
@@ -98,7 +93,7 @@ const Home = () => {
 
           <div className="p-4">
             <button
-              onClick={() => apiCall()}
+              onClick={() => onsearch()}
               className="bg-white text-orange-400 z-10  p-5 font-semibold hover:bg-blue-400 focus:outline-none  h-12 flex items-center justify-center">
               SEARCH
             </button>
