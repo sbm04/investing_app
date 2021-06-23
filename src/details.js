@@ -1,12 +1,12 @@
 import React from "react";
-import {apiCall} from './requests'
+import { apiCall } from './requests'
 
 const Details = ({
   location: {
     state: { data },
   },
 }) => {
- 
+
 
   console.log({ data });
 
@@ -14,10 +14,10 @@ const Details = ({
   const [query, setquery] = React.useState('')
 
 
-  
+
 
   const onsearch = () => {
-    apiCall(query,(json) => setStateData(json), (e) => console.log({e}))
+    apiCall(query, (json) => setStateData(json), (e) => console.log({ e }))
   }
   const {
     country,
@@ -78,7 +78,7 @@ const Details = ({
 
 
       <div className="w-2/5 text-white h-12 pl-32 py-4 pt-10 mr-10 ">
-        <div className="flex items-center flex-shrink-0 text-white mr-6">
+        <div className="flex items-center flex-shrink-0 text-white mr-6 ">
           <svg
             className="fill-current h-8 w-8 mr-2"
             width="54"
@@ -93,7 +93,7 @@ const Details = ({
         </div>
 
         <nav className="mt-5 px-2">
-          {menus.map(menu => (
+          {/* {menus.map(menu => (
             <a
 
               className="group my-3 flex items-center px-2 py-2 text-base leading-6 font-semibold rounded-full  hover:bg-blue-800 hover:text-blue-300 text-white">
@@ -111,72 +111,148 @@ const Details = ({
               </svg>
               {menu.title}
             </a>
-          ))}
+          ))} */}
 
-          <button className="bg-blue-400 w-48 mt-5 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-full">
-           Button
-          </button>
+
+<div className="flex items-center flex-shrink-0 text-white mr-10  ">
+            <div className=" flex flex-col justify-center ">
+              <div className="flex items-center justify-center ">
+                <div className=" relative inline-block text-left dropdown">
+                  <span className="rounded-md shadow-sm">
+                    <button
+                      className="inline-flex justify-center w-full px-4 py-2 text-sm font-medium leading-5 text-gray-700 transition duration-150 ease-in-out bg-gray-800 border border-gray-300 rounded-md hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-50 active:text-gray-800"
+                      type="button" aria-haspopup="true" aria-expanded="true" aria-controls="headlessui-menu-items-117">
+                      <span className="font-semibold text-xl tracking-tight px-2 text-teal-200 hover:text-white">
+                        Financials
+                      </span>
+                      <svg class="w-5 h-5 ml-2 -mr-1" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd"
+                          d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                          clip-rule="evenodd"></path>
+                      </svg>
+                    </button>
+
+                  </span>
+                  <div
+                    class="opacity-0 invisible dropdown-menu transition-all duration-300 transform origin-top-right -translate-y-2 scale-95">
+                    <div class="absolute right-0 w-56 mt-2 origin-top-right bg-white border border-gray-200 divide-y divide-gray-100 rounded-md shadow-lg outline-none"
+                      aria-labelledby="headlessui-menu-button-1" id="headlessui-menu-items-117" role="menu">
+
+                      <div class="py-1">
+                        <a href="javascript:void(0)" tabindex="0"
+                          class="text-gray-700 flex justify-between w-full px-4 py-2 text-sm leading-5 text-left"
+                          role="menuitem">Balance Sheet</a>
+                        <a href="javascript:void(0)" tabindex="1"
+                          class="text-gray-700 flex justify-between w-full px-4 py-2 text-sm leading-5 text-left"
+                          role="menuitem">Cash Flowt</a>
+
+                        <a href="javascript:void(0)" tabindex="2"
+                          class="text-gray-700 flex justify-between w-full px-4 py-2 text-sm leading-5 text-left"
+                          role="menuitem">Income Statement</a>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          {/* dropdown 2 */}
+          <div className="flex items-center flex-shrink-0  text-white mr-10 mt-2 ">
+            <div className=" flex flex-col justify-center ">
+              <div className="flex items-center justify-center ">
+                <div className=" relative inline-block text-left dropdown">
+                  <span className="rounded-md shadow-sm">
+                    <button
+                      class="inline-flex justify-center w-full px-4 py-2 text-sm font-medium leading-5 text-gray-700 transition duration-150 ease-in-out bg-gray-800 border border-gray-300 rounded-md hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-50 active:text-gray-800"
+                      type="button" aria-haspopup="true" aria-expanded="true" aria-controls="headlessui-menu-items-117">
+                      <span className="font-semibold text-xl tracking-tight  text-teal-200 hover:text-white">
+                      Ratio Analysis
+                      </span>
+                      <svg class="w-5 h-5 ml-2 -mr-1" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd"
+                          d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                          clip-rule="evenodd"></path>
+                      </svg>
+                    </button>
+
+                  </span>
+                  <div
+                    class="opacity-0 invisible dropdown-menu transition-all duration-300 transform origin-top-right -translate-y-2 scale-95">
+                    <div class="absolute right-0 w-56 mt-2 origin-top-right bg-white border border-gray-200 divide-y divide-gray-100 rounded-md shadow-lg outline-none"
+                      aria-labelledby="headlessui-menu-button-1" id="headlessui-menu-items-117" role="menu">
+
+                      <div class="py-1">
+                        <a href="javascript:void(0)" tabindex="0"
+                          class="text-gray-700 flex justify-between w-full px-4 py-2 text-sm leading-5 text-left"
+                          role="menuitem">Balance Sheet</a>
+                        <a href="javascript:void(0)" tabindex="1"
+                          class="text-gray-700 flex justify-between w-full px-4 py-2 text-sm leading-5 text-left"
+                          role="menuitem">Cash Flowt</a>
+
+                        <a href="javascript:void(0)" tabindex="2"
+                          class="text-gray-700 flex justify-between w-full px-4 py-2 text-sm leading-5 text-left"
+                          role="menuitem">Income Statement</a>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          {/* dropdown 3 */}
+          <div className="flex items-center flex-shrink-0 text-white mr-10 mt-2 ">
+            <div className=" flex flex-col justify-center ">
+              <div className="flex items-center justify-center ">
+                <div className=" relative inline-block text-left dropdown">
+                  <span className="rounded-md shadow-sm">
+                    <button
+                      class="inline-flex justify-center w-full px-4 py-2 text-sm font-medium leading-5 text-gray-700 transition duration-150 ease-in-out bg-gray-800 border border-gray-300 rounded-md hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-50 active:text-gray-800"
+                      type="button" aria-haspopup="true" aria-expanded="true" aria-controls="headlessui-menu-items-117">
+                      <span className="font-semibold text-xl tracking-tight  text-teal-200 hover:text-white">
+                      Financial Models
+                      </span>
+                      <svg class="w-5 h-5 ml-2 -mr-1" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd"
+                          d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                          clip-rule="evenodd"></path>
+                      </svg>
+                    </button>
+
+                  </span>
+                  <div
+                    class="opacity-0 invisible dropdown-menu transition-all duration-300 transform origin-top-right -translate-y-2 scale-95">
+                    <div class="absolute right-0 w-56 mt-2 origin-top-right bg-white border border-gray-200 divide-y divide-gray-100 rounded-md shadow-lg outline-none"
+                      aria-labelledby="headlessui-menu-button-1" id="headlessui-menu-items-117" role="menu">
+
+                      <div class="py-1">
+                        <a href="javascript:void(0)" tabindex="0"
+                          class="text-gray-700 flex justify-between w-full px-4 py-2 text-sm leading-5 text-left"
+                          role="menuitem">3 Statemen</a>
+                        <a href="javascript:void(0)" tabindex="1"
+                          class="text-gray-700 flex justify-between w-full px-4 py-2 text-sm leading-5 text-left"
+                          role="menuitem"> DCF</a>
+
+                        
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+         
         </nav>
       </div>
 
       <div className="">
         <nav className="flex items-center justify-between flex-wrap w-full bg-gray-800 p-6 z-10">
-          {/* dropdown */}
-          <div className="flex items-center flex-shrink-0 text-white mr-10 ">
-          <div className=" flex flex-col justify-center ">
-          <div className="flex items-center justify-center ">
-          <div className=" relative inline-block text-left dropdown">
-          <span className="rounded-md shadow-sm">
-          <button
-                    class="inline-flex justify-center w-full px-4 py-2 text-sm font-medium leading-5 text-gray-700 transition duration-150 ease-in-out bg-gray-800 border border-gray-300 rounded-md hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-50 active:text-gray-800"
-                    type="button" aria-haspopup="true" aria-expanded="true" aria-controls="headlessui-menu-items-117">
-                    <span className="font-semibold text-xl tracking-tight  text-teal-200 hover:text-white">
-                        Financials
-                    </span>
-                    <svg class="w-5 h-5 ml-2 -mr-1" viewBox="0 0 20 20" fill="currentColor">
-                        <path fill-rule="evenodd"
-                            d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                            clip-rule="evenodd"></path>
-                    </svg>
-                </button>
-
-            </span>
-            <div
-                class="opacity-0 invisible dropdown-menu transition-all duration-300 transform origin-top-right -translate-y-2 scale-95">
-                <div class="absolute right-0 w-56 mt-2 origin-top-right bg-white border border-gray-200 divide-y divide-gray-100 rounded-md shadow-lg outline-none"
-                    aria-labelledby="headlessui-menu-button-1" id="headlessui-menu-items-117" role="menu">
-                    
-                    <div class="py-1">
-                        <a href="javascript:void(0)" tabindex="0"
-                            class="text-gray-700 flex justify-between w-full px-4 py-2 text-sm leading-5 text-left"
-                            role="menuitem">Balance Sheet</a>
-                        <a href="javascript:void(0)" tabindex="1"
-                            class="text-gray-700 flex justify-between w-full px-4 py-2 text-sm leading-5 text-left"
-                            role="menuitem">Cash Flowt</a>
-                        
-                        <a href="javascript:void(0)" tabindex="2"
-                            class="text-gray-700 flex justify-between w-full px-4 py-2 text-sm leading-5 text-left"
-                            role="menuitem">Income Statement</a>
-                    </div>
-                   
-                </div>
-            </div>
-
-
-            </div>
-
-
-
-
-
-            </div>
-            
-
-
-            </div>
-            
-            
-          </div>
+         
+         
           <div className="block lg:hidden">
             <button className="flex items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white">
               <svg
@@ -208,25 +284,19 @@ const Details = ({
             </div>
             <div className="pt-2 relative mx-auto text-gray-600">
               <input
-               onChange = {(ev) => setquery(ev.target.value)}
+                onChange={(ev) => setquery(ev.target.value)}
                 className="border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg text-sm focus:outline-none"
                 type="search"
                 name="search"
                 placeholder="Search" />
-                <button onClick = {() => onsearch()} type="submit" className="absolute right-0 top-0 mt-5 mr-4">
-                <svg className="text-gray-600 h-4 w-4 fill-current"  width="512px" height="512px" viewBox="0 0 56.966 56.966">
-                <path
-              d="M55.146,51.887L41.588,37.786c3.486-4.144,5.396-9.358,5.396-14.786c0-12.682-10.318-23-23-23s-23,10.318-23,23  s10.318,23,23,23c4.761,0,9.298-1.436,13.177-4.162l13.661,14.208c0.571,0.593,1.339,0.92,2.162,0.92  c0.779,0,1.518-0.297,2.079-0.837C56.255,54.982,56.293,53.08,55.146,51.887z M23.984,6c9.374,0,17,7.626,17,17s-7.626,17-17,17  s-17-7.626-17-17S14.61,6,23.984,6z" />
+              <button onClick={() => onsearch()} type="submit" className="absolute right-0 top-0 mt-5 mr-4">
+                <svg className="text-gray-600 h-4 w-4 fill-current" width="512px" height="512px" viewBox="0 0 56.966 56.966">
+                  <path
+                    d="M55.146,51.887L41.588,37.786c3.486-4.144,5.396-9.358,5.396-14.786c0-12.682-10.318-23-23-23s-23,10.318-23,23  s10.318,23,23,23c4.761,0,9.298-1.436,13.177-4.162l13.661,14.208c0.571,0.593,1.339,0.92,2.162,0.92  c0.779,0,1.518-0.297,2.079-0.837C56.255,54.982,56.293,53.08,55.146,51.887z M23.984,6c9.374,0,17,7.626,17,17s-7.626,17-17,17  s-17-7.626-17-17S14.61,6,23.984,6z" />
 
                 </svg>
 
-
-
-
-                </button>
-
-
-
+              </button>
 
             </div>
 
@@ -236,7 +306,7 @@ const Details = ({
 
 
 
-        <div className="grid mb-4 pt-6  pb-10 px-8 mx-4 rounded-3xl bg-gray-800 border-4 border-green-400">
+        <div className="grid mb-4 pt-6  pb-10 px-8 mx-4 rounded-3xl bg-gray-800 border-2 border-green-400">
           <div className="p-8 flex-col bg-gray-800  flex justify-center items-center w-full h-80  bg-gradient-to-r from-green-400 to-blue-500  border-2 border-gray-900">
             <p className="text-9xl font-bold m-10 z-10 text-white">
               InvestingGuru
