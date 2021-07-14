@@ -2,22 +2,15 @@ import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 
 import bgimage from "./assets/p1.jpg";
-import { apiCall } from "./requests";
-
-
 
 const Home = () => {
   const [query, setquery] = useState("");
 
-
   const history = useHistory();
 
   const onsearch = () => {
-    apiCall(query,(json) => history.push("/details",{
-     
-      data : json
-    }), (e) => console.log({e}))
-  }
+    history.push(`/details/${query}`);
+  };
 
   return (
     <div className="flex flex-col  w-full  ">
@@ -29,7 +22,8 @@ const Home = () => {
             width="54"
             height="54"
             viewBox="0 0 54 54"
-            xmlns="http://www.w3.org/2000/svg">
+            xmlns="http://www.w3.org/2000/svg"
+          >
             <path d="M13.5 22.1c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05zM0 38.3c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05z" />
           </svg>
           <span className="font-semibold text-xl tracking-tight">
@@ -41,7 +35,8 @@ const Home = () => {
             <svg
               className="fill-current h-3 w-3"
               viewBox="0 0 20 20"
-              xmlns="http://www.w3.org/2000/svg">
+              xmlns="http://www.w3.org/2000/svg"
+            >
               <title>Menu</title>
               <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
             </svg>
@@ -51,24 +46,28 @@ const Home = () => {
           <div className="text-sm lg:flex-grow">
             <a
               href="#responsive-header"
-              className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
+              className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4"
+            >
               Home
             </a>
             <a
               href="#responsive-header"
-              className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
+              className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4"
+            >
               Examples
             </a>
             <a
               href="#responsive-header"
-              className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white">
+              className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white"
+            >
               Blog
             </a>
           </div>
           <div>
             <a
               href="#"
-              className="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0">
+              className="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0"
+            >
               Download
             </a>
           </div>
@@ -82,9 +81,12 @@ const Home = () => {
           Want more traffic? InvestingGuru shows you how to win the game of SEO.
           Just type in a domain or a keyword to get started
         </p>
-        <div className="bg-orange-500 flex items-center w-1/2 p-2 rounded overflow-hidden  shadow-xl z-10">
+        <form
+          onSubmit={onsearch}
+          className="bg-orange-500 flex items-center w-1/2 p-2 rounded overflow-hidden  shadow-xl z-10"
+        >
           <input
-            onChange={ev => setquery(ev.target.value)}
+            onChange={(ev) => setquery(ev.target.value)}
             className=" w-full py-4 px-7 bg-gray-100 text-gray-700 leading-tight focus:outline-none "
             id="search"
             type="text"
@@ -93,12 +95,13 @@ const Home = () => {
 
           <div className="p-4">
             <button
-              onClick={() => onsearch()}
-              className="bg-white text-orange-400 z-10  p-5 font-semibold hover:bg-blue-400 focus:outline-none  h-12 flex items-center justify-center">
+              type="sumbit"
+              className="bg-white text-orange-400 z-10  p-5 font-semibold hover:bg-blue-400 focus:outline-none  h-12 flex items-center justify-center"
+            >
               SEARCH
             </button>
           </div>
-        </div>
+        </form>
       </div>
     </div>
   );
